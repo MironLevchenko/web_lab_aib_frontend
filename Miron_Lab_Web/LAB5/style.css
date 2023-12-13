@@ -1,0 +1,39 @@
+#child-con-head{
+    max-width: 1080px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+body{
+    display: grid;
+    justify-content: center;
+}
+.contenthead{
+    display: flex;
+    justify-content: space-evenly;
+}
+#contentHead{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main_con{
+    display: flex;
+    justify-content: center;
+}
+#logotype{
+    height: 100px;
+    width: auto;
+}
+#child-con-footer{
+    max-width: 1080px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#namespace{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

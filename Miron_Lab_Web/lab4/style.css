@@ -1,0 +1,55 @@
+html {
+  height: 100%;
+}
+@font-face {
+  font-family: 'William';
+  src: url("fonts/Williamdemo.ttf");
+  font-family: 'Inter-Italic';
+  src: url("fonts/Inter-Italic.otf");
+}
+body {
+  color: white;
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  background-color: white;
+}
+#div1{
+  background-color: rgb(255, 114, 137);
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+h1{
+  text-align: center;
+  font-family: 'William', sans-serif;
+}
+h2{
+  text-align: center;
+  font-family: 'William', serif;
+}
+img{
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+#Tyler{
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+}
+p{
+  color: black;
+  margin-top: 600px;
+}
