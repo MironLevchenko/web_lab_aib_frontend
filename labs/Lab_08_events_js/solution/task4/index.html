@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form>
-        <label for="Green">Введи значение:</label>
-        <input type="text" name="Green" id="Green"class="element" placeholder="Напиши букву">
-        <label for="Red">Введи значение:</label>
-        <input type="text" name="Red" id="Red"class="element" placeholder="Напиши букву">
-        <label for="Blue">Введи значение:</label>
-        <input type="text" name="Blue" id="Blue"class="element" placeholder="Напиши букву">
-    </form>
-    <div id="blockColor" class="element" style="width:100%;height:300px;margin-top: 5%;border-style:groove;"></div>
-    <button id="button" style="margin: 20px;">Создай блок внутри</button>
-    <div id="ParentBlock"class="element" style="height:300px; width:100%;display:flex; border-style:dashed;justify-content:center;align-items:center;"></div>
-</body>
-<script src="app.js"></script>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="style.css" />
+        <title>lab8</title>
+    </head>
+    <body>
+        <div class="color-box">
+        <div>
+            <label for="redInput">Red:</label>
+            <input type="number" id="redInput" min="0" max="255">
+            <label for="greenInput">Green:</label>
+            <input type="number" id="greenInput" min="0" max="255">
+            <label for="blueInput">Blue:</label>
+            <input type="number" id="blueInput" min="0" max="255">
+        </div>
+            <div id="colorSquare" class="color-square"> </div>
+        </div>
+        <div class="color-box">
+        <button id="generateButton">Сгенерировать</button>
+        </div>
+        <div class="color-area" id="colorArea"></div>
+    </body>
+    <script src="app.js"></script>
 </html>

@@ -1,49 +1,50 @@
-window.onload = function(){
-    document.getElementById('Green').addEventListener('input', function() {
-        // Если поле input не пустое, изменяем цвет блока на зеленый
-        if (this.value != "") {
-            document.getElementById('blockColor').style.backgroundColor = 'green';
-        } else {
-            // Если поле input пустое, возвращаем блоку исходный цвет
-            document.getElementById('blockColor').style.backgroundColor = 'white';
-        }
-   });
-   document.getElementById('Red').addEventListener('input', function() {
-        // Если поле input не пустое, изменяем цвет блока на красный
-        if (this.value != "") {
-            document.getElementById('blockColor').style.backgroundColor = 'red';
-        } else {
-            // Если поле input пустое, возвращаем блоку исходный цвет
-            document.getElementById('blockColor').style.backgroundColor = 'white';
-        }
-    });
-    document.getElementById('Blue').addEventListener('input', function() {
-        // Если поле input не пустое, изменяем цвет блока на синий
-        if (this.value != "") {
-            document.getElementById('blockColor').style.backgroundColor = 'blue';
-        } else {
-            // Если поле input пустое, возвращаем блоку исходный цвет
-            document.getElementById('blockColor').style.backgroundColor = 'white';
-        }
-    });
-    let count =0;
-    document.getElementById('button').onclick = function(){
-        let miniBlock = document.createElement('div');
-        miniBlock.id ='miniBlock';
-        miniBlock.class="element";
-        miniBlock.innerText = 'Я цветной';
-        document.getElementById('ParentBlock').appendChild(miniBlock);
-        count++;
-        if(count<15){
-            miniBlock.style.cssText = `height:200px; width:20%; background: blue;position:absolute;`;
-        }else{
-            miniBlock.style.cssText = `height:200px; width:20%; background: brown;position:absolute;`;
-        }
-    }
-    document.getElementById('miniBlock').addEventListener('div',function() {
-        let color =  getComputedStyle(this).backgroundColor;
-        console.log(color)
-        document.body.style.backgroundColor = color;
-    });
-};
+const redInput = document.getElementById('redInput');
+const greenInput = document.getElementById('greenInput');
+const blueInput = document.getElementById('blueInput');
+const generateButton = document.getElementById('generateButton');
+const colorArea = document.getElementById('colorArea');
+const colorSquare = document.getElementById('colorSquare');
+let savedColor = null;
 
+generateButton.addEventListener('click', generateColorBlock);
+colorArea.addEventListener('click', changeBackgroundColor);
+
+function generateColorBlock() {
+    const red = redInput.value || 0;
+    const green = greenInput.value || 0;
+    const blue = blueInput.value || 0;
+
+    if (red >= 0 && red <= 255 && green >= 0 && green <= 255 && blue >= 0 && blue <= 255) {
+        const rgbColor = `rgb(${red}, ${green}, ${blue})`;
+
+        colorSquare.style.backgroundColor = rgbColor;
+
+        const colorBlock = document.createElement('div');
+        colorBlock.style.backgroundColor = rgbColor;
+        colorBlock.className = 'color-block';
+        colorBlock.style.border = '2px solid black';
+
+        colorArea.appendChild(colorBlock);
+
+        const colorBlocks = colorArea.querySelectorAll('.color-block');
+        if (colorBlocks.length > 15) {
+            colorArea.removeChild(colorBlocks[0]);
+        }
+
+        savedColor = rgbColor;
+    } else {
+        alert('Неверное значение цвета');
+    }
+}
+
+function changeBackgroundColor(event) {
+    const target = event.target;
+
+    if (target.classList.contains('color-block')) {
+        if (target !== colorSquare) {
+            document.body.style.backgroundColor = target.style.backgroundColor;
+        }
+    } else if (target !== colorSquare) {
+        document.body.style.backgroundColor = savedColor;
+    }
+}

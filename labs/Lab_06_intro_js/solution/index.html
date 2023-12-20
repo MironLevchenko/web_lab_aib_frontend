@@ -27,11 +27,11 @@
         console.log('RandomNumber + textNumber = ',RandomNumber + textNumber);
         console.log('textNumber + RandomBoolNumber = ',textNumber + RandomBoolNumber);
         console.log('RandomNumber + RandomBoolNumber = ',RandomNumber + RandomBoolNumber);
-        console.log('RandomBoolNumber + textNumber = ',RandomBoolNumber + textNumber);
-        console.log('RandomBoolNumber + RandomNumber = ',RandomBoolNumber + RandomNumber);
+        console.log('RandomBoolNumber + textNumber = ', RandomBoolNumber + textNumber);
+        console.log('RandomBoolNumber + RandomNumber = ', RandomBoolNumber + RandomNumber);
         // создаем массив  и заполняем его значениями
         let arrNumber =[];
-        for(let i=0;i<=10; i++){
+        for(let i=0;i<=10; i++) {
             let RandomNumber = Math.floor(Math.random()*10);
             arrNumber[i] = RandomNumber;
         }
@@ -40,7 +40,7 @@
         let arrFilter = arrNumber.filter((valueArr)=> valueArr > 1);
         console.log("arrFilter: ",arrFilter);
         // функция генерации числа
-        function RandomNumberFunc(){
+        function RandomNumberFunc() {
             let RandomNum = Math.round(Math.random() * 100);
             console.log("RandomNum: ", RandomNum);
         }
@@ -54,9 +54,9 @@
         function GenerateRandomWord(){
             let arrLetter = ['a','b','c','d','s','j','y','d','e','g'];
             var Letter = "";
-            for(let i = 0;i<=arrLetter.length;i++){
+            for(let i = 0; i<=arrLetter.length; i++){
                 let RandomNumbers = Math.round(Math.random() * 10);
-                if(RandomNumbers<=arrLetter.length){
+                if (RandomNumbers<=arrLetter.length) {
                    Letter= Letter + arrLetter[RandomNumbers];
                 }
             }
@@ -71,7 +71,7 @@
             birthday: "13 july",
             hobby: "Fishing",
             group: "ITU",
-            salary: function () {
+            getSalary: function () {
                 return this.Firstname +' '+ this.Surname +' '+ this.patronymic+' '+ this.hobby+' '+ this.group;
             }
         }
@@ -81,7 +81,7 @@
         let Interprice={
             Levchenko: 70000,
             Lichachev: 140000,
-            Chebatarev: 9999,
+            Chebatarev: 9999.998,
             Pochik: 1234,
             Lihenko: 32123,
             Ugandov: 72132,
@@ -89,7 +89,7 @@
             Kovalenko: 12345,
             Lobatarev: 73120,
             nichenko: 30000,
-            Zarplata: function(){
+            Zarplata: function() {
                 return this.Levchenko + this.Lichachev + this.Chebatarev + this.Pochik + this.Lihenko + this.Ugandov + this.Litenikov + this.Kovalenko + this.Lobatarev + this.nichenko;
             }
         }
