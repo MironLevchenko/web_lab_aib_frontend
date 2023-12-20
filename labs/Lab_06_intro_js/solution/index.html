@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>
+    // тут мой код
+    window.onload = function(){
+        let apple = 10;
+        alert('apple: ',apple);
+        console.log('apple: ',apple);
+        let condition = apple + ' or banana';
+        console.log('Good game is ',condition);
+        // берем псевдо рандомное число от 0 до 1 и умножаем его на 100 затем округляем
+        let RandomNumber = Math.round(Math.random() * 100);
+        let textNumber = "100";
+        let RandomBoolNumber = Math.random() * 10;
+        console.log("RandomNumber: ", RandomNumber);
+        console.log("textNumder: ", textNumber);
+        console.log("RandomBoolNumber: ", RandomBoolNumber);
+        // операции сложения
+        console.log('textNumber + RandomNumber = ',textNumber + RandomNumber);
+        console.log('RandomNumber + textNumber = ',RandomNumber + textNumber);
+        console.log('textNumber + RandomBoolNumber = ',textNumber + RandomBoolNumber);
+        console.log('RandomNumber + RandomBoolNumber = ',RandomNumber + RandomBoolNumber);
+        console.log('RandomBoolNumber + textNumber = ', RandomBoolNumber + textNumber);
+        console.log('RandomBoolNumber + RandomNumber = ', RandomBoolNumber + RandomNumber);
+        // создаем массив  и заполняем его значениями
+        let arrNumber =[];
+        for(let i=0;i<=10; i++) {
+            let RandomNumber = Math.floor(Math.random()*10);
+            arrNumber[i] = RandomNumber;
+        }
+        // фильтруем массив, если значение меньше единицы убрать
+        console.log("arrNumber: ",arrNumber);
+        let arrFilter = arrNumber.filter((valueArr)=> valueArr > 1);
+        console.log("arrFilter: ",arrFilter);
+        // функция генерации числа
+        function RandomNumberFunc() {
+            let RandomNum = Math.round(Math.random() * 100);
+            console.log("RandomNum: ", RandomNum);
+        }
+        RandomNumberFunc();
+        // функция умножения массива и числа параметром (использую старый массив и число)
+        function ArrUmnojaemNumber(arr,Num){
+            let UParray = arr.map(item => item * Num);
+            console.log('UParray: ',UParray)
+        }
+        ArrUmnojaemNumber(arrNumber,RandomNumber)
+        function GenerateRandomWord(){
+            let arrLetter = ['a','b','c','d','s','j','y','d','e','g'];
+            var Letter = "";
+            for(let i = 0; i<=arrLetter.length; i++){
+                let RandomNumbers = Math.round(Math.random() * 10);
+                if (RandomNumbers<=arrLetter.length) {
+                   Letter= Letter + arrLetter[RandomNumbers];
+                }
+            }
+            console.log('Random Word: ', Letter);
+        }
+        GenerateRandomWord();
+        // объект с личными данными
+        let Sotrudnik= {
+            Firstname: "Julya",
+            Surname: "Parasochakay",
+            patronymic: "What is this?",
+            birthday: "13 july",
+            hobby: "Fishing",
+            group: "ITU",
+            getSalary: function () {
+                return this.Firstname +' '+ this.Surname +' '+ this.patronymic+' '+ this.hobby+' '+ this.group;
+            }
+        }
+        alert(Sotrudnik.salary());
+        console.log(Sotrudnik.salary());
+        // сумма зарплаты сотрудников
+        let Interprice={
+            Levchenko: 70000,
+            Lichachev: 140000,
+            Chebatarev: 9999.998,
+            Pochik: 1234,
+            Lihenko: 32123,
+            Ugandov: 72132,
+            Litenikov: 23000,
+            Kovalenko: 12345,
+            Lobatarev: 73120,
+            nichenko: 30000,
+            Zarplata: function() {
+                return this.Levchenko + this.Lichachev + this.Chebatarev + this.Pochik + this.Lihenko + this.Ugandov + this.Litenikov + this.Kovalenko + this.Lobatarev + this.nichenko;
+            }
+        }
+        console.log("Зрплата сотрудников: ",Interprice.Zarplata());
+    }
+</script>
+</body>
+</html>
