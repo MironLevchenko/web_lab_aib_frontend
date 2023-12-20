@@ -33,7 +33,7 @@ function isAdmin()
     else
     {
         user = 'Admin';
-        return false; 
+        return false;
     }
 }
 

@@ -39,7 +39,7 @@
         console.log("arrNumber: ",arrNumber);
         let arrFilter = arrNumber.filter((valueArr)=> valueArr > 1);
         console.log("arrFilter: ",arrFilter);
-        // функция генерации числа 
+        // функция генерации числа
         function RandomNumberFunc(){
             let RandomNum = Math.round(Math.random() * 100);
             console.log("RandomNum: ", RandomNum);
@@ -57,7 +57,7 @@
             for(let i = 0;i<=arrLetter.length;i++){
                 let RandomNumbers = Math.round(Math.random() * 10);
                 if(RandomNumbers<=arrLetter.length){
-                   Letter= Letter + arrLetter[RandomNumbers]; 
+                   Letter= Letter + arrLetter[RandomNumbers];
                 }
             }
             console.log('Random Word: ', Letter);
@@ -73,7 +73,7 @@
             group: "ITU",
             salary: function () {
                 return this.Firstname +' '+ this.Surname +' '+ this.patronymic+' '+ this.hobby+' '+ this.group;
-            }   
+            }
         }
         alert(Sotrudnik.salary());
         console.log(Sotrudnik.salary());
