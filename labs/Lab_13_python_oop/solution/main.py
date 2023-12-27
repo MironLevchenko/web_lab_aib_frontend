@@ -4,10 +4,8 @@ import os
 from writter import XlsAnalyticPaymentWriter
 
 def load_data(file_path):
-    full_path = os.path.join(
-        "C:\\Users\\Admin\\PycharmProjects\\lab13",
-        file_path
-    )
+    current_dir = os.path.dirname(__file__)
+    full_path = os.path.join(current_dir, file_path)
 
     with open(full_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
