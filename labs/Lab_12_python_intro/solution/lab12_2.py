@@ -1,4 +1,4 @@
-with open('input.txt', 'r') as file:
+with open('input2.txt', 'r') as file:
     n = int(file.readline())
     sequence = list(map(int, file.readline().split()))
     medians = []

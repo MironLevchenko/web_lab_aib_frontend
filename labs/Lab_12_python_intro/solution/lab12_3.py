@@ -1,4 +1,4 @@
-with open('input.txt', 'r') as file:
+with open('input3.txt', 'r') as file:
     text = file.read()
     char_count = {}
     for char in text:

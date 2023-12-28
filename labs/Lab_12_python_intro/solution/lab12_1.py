@@ -1,4 +1,4 @@
-with open('input.txt', 'r') as file:
+with open('input1.txt', 'r') as file:
     N, M = map(int, file.readline().split())
     if not (1 <= N <= 50 and 1 <= M <= 50):
         print("Нужны числа от 1 до 50!! измените числа в входном файле и перезапустите код.")
