@@ -7,11 +7,9 @@ class TopPayersBlock(BaseXlsBlock):
     NAME = "Отчёт по активным клиентам"
 
     def write_header(self):
-        self.worksheet.write(self.row, self.col, self.NAME, self.workbook.add_format({'bg_color': 'blue', 'border': 1}))
-        self.worksheet.write(self.row, self.col + 1, "ФИО", self.workbook.add_format({'bg_color': 'blue', 'border': 1}))
-        self.worksheet.write(self.row, self.col + 2, "Общая сумма", self.workbook.add_format({'bg_color': 'blue', 'border': 1}))
+        self.worksheet.write(self.row, self.col, self.NAME)
+
     def write_data(self):
-        self.col += 1
         self.row += 1
 
         clients = self.data['clients']
@@ -36,19 +34,16 @@ class TopPayersBlock(BaseXlsBlock):
         for i, payer in enumerate(top_payers, start=1):
             client_info = next(client for client in clients if client['id'] == payer['client_id'])
             fio = client_info['fio']
-            self.worksheet.write(self.row + i - 1, self.col, f"{i}. {fio}")
-            self.worksheet.write(self.row + i - 1, self.col + 1, f"{payer['total_amount']}")
+            self.worksheet.write(self.row + i, self.col, f"{i}. {fio}: {payer['total_amount']}")
 
 
 class TopCitiesBlock(BaseXlsBlock):
     NAME = "География клиентов"
 
     def write_header(self):
-        self.worksheet.write(self.row, self.col, self.NAME, self.workbook.add_format({'bg_color': 'blue', 'border': 1}))
-        self.worksheet.write(self.row, self.col + 1, "Город", self.workbook.add_format({'bg_color': 'blue', 'border': 1}))
-        self.worksheet.write(self.row, self.col + 2, "Количество клиентов", self.workbook.add_format({'bg_color': 'blue', 'border': 1}))
+        self.worksheet.write(self.row, self.col, self.NAME)
+
     def write_data(self):
-        self.col += 1
         self.row += 1
 
         clients = self.data['clients']
@@ -61,19 +56,18 @@ class TopCitiesBlock(BaseXlsBlock):
         top_cities = sorted(city_counts.items(), key=lambda x: x[1], reverse=True)[:10]
 
         for i, (city, count) in enumerate(top_cities, start=1):
-            self.worksheet.write(self.row + i - 1, self.col, f"{i}. {city}")
-            self.worksheet.write(self.row + i - 1, self.col + 1, f"{count}")
+            self.worksheet.write(self.row + i, self.col, f"{i}. {city}: {count} клиентов")
 
 
 class AccountStatusBlock(BaseXlsBlock):
     NAME = "Анализ состояния счёта"
+
     def write_header(self):
-        self.worksheet.write(self.row, self.col, self.NAME, self.workbook.add_format({'bg_color': 'blue', 'border': 1}))
-        self.worksheet.write(self.row, self.col + 1, "ФИО", self.workbook.add_format({'bg_color': 'blue', 'border': 1}))
-        self.worksheet.write(self.row, self.col + 2, "Баланс", self.workbook.add_format({'bg_color': 'blue', 'border': 1}))
+        self.worksheet.write(self.row, self.col, self.NAME)
+
     def write_data(self):
-        self.col += 1
         self.row += 1
+
         clients = self.data['clients']
         payments = self.data['payments']
 
@@ -88,5 +82,4 @@ class AccountStatusBlock(BaseXlsBlock):
         for i, (client_id, balance) in enumerate(top_balances, start=1):
             client_info = next(client for client in clients if client['id'] == client_id)
             fio = client_info['fio']
-            self.worksheet.write(self.row + i - 1, self.col, f"{i}. {fio}")
-            self.worksheet.write(self.row + i - 1, self.col + 1, f"{balance}")
+            self.worksheet.write(self.row + i, self.col, f"{i}. {fio}: Баланс - {balance}")
