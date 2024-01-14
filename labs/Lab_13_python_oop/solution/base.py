@@ -2,6 +2,7 @@ from abc import ABCMeta, abstractmethod
 
 
 class BaseXlsBlock(metaclass=ABCMeta):
+<<<<<<< HEAD
     TITLE = "TITLE"
     def __init__(self, workbook, worksheet, row, col, some_data):
         self.workbook = workbook
@@ -48,3 +49,22 @@ class BaseXlsBlock(metaclass=ABCMeta):
     def writer_header(self):
         pass
     
+=======
+    NAME = "Block"
+    colNames = []
+
+    def __init__(self, worksheet, workbook, row, col, data={}):
+        self.worksheet = worksheet
+        self.workbook = workbook
+        self.row = row
+        self.col = col
+        self.data = data
+
+    @abstractmethod
+    def writeHeaderCol(self):
+        pass
+
+    @abstractmethod
+    def writeData(self):
+        pass
+>>>>>>> 8ca2eeef386c20360bbb5f6b8ed0abfe4c98dbf7

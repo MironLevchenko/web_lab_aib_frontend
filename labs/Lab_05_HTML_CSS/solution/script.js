@@ -1,10 +1,14 @@
 window.onload = function(){
+<<<<<<< HEAD
     const HeadContentIMG =['https://ae01.alicdn.com/kf/HTB1nK2dclHH8KJjy0Fbq6AqlpXaZ/fun-Emoji-Face-PVC-football-ball-size-2-play-balls-Cartoon-cute-Soccer-balls-for-kids.jpg',
     'https://shop.art-mark.ru/image/data/fullsize/78590_2.jpg',
     'https://img.staticbg.com/images/oaupload/banggood/images/F1/C8/4a0149e7-6fe7-4aab-8a3d-eeaaafe4a0e0.jpg',
     'https://sc02.alicdn.com/kf/HTB1GiwJjgZC2uNjSZFnq6yxZpXaI/custom-stuffed-plush-animal-toys-giant-dinosaur.jpg',
     'https://ae01.alicdn.com/kf/HTB17Lm5CHSYBuNjSspfq6AZCpXaq.jpg',
     'https://cs3.pikabu.ru/post_img/big/2014/03/18/5/1395119345_1175541869.jpg'];
+=======
+    const HeadContentIMG =['https://ae01.alicdn.com/kf/HTB1nK2dclHH8KJjy0Fbq6AqlpXaZ/fun-Emoji-Face-PVC-football-ball-size-2-play-balls-Cartoon-cute-Soccer-balls-for-kids.jpg','https://shop.art-mark.ru/image/data/fullsize/78590_2.jpg','https://img.staticbg.com/images/oaupload/banggood/images/F1/C8/4a0149e7-6fe7-4aab-8a3d-eeaaafe4a0e0.jpg','https://sc02.alicdn.com/kf/HTB1GiwJjgZC2uNjSZFnq6yxZpXaI/custom-stuffed-plush-animal-toys-giant-dinosaur.jpg','https://ae01.alicdn.com/kf/HTB17Lm5CHSYBuNjSspfq6AZCpXaq.jpg','https://cs3.pikabu.ru/post_img/big/2014/03/18/5/1395119345_1175541869.jpg'];
+>>>>>>> 8ca2eeef386c20360bbb5f6b8ed0abfe4c98dbf7
     const HeadText =['мячик','юла','кукла','динозавр','меч','пистолет'];
     const HeadContentIMG2 =['https://cdn1.ozone.ru/s3/multimedia-g/6084885352.jpg',
     'https://www.superhero-collection.com/wp-content/uploads/2013/06/spiderman-ballz-beanie.jpg',
@@ -19,6 +23,7 @@ window.onload = function(){
     'https://best-shop.su/images/product_images/popup_images/1931_0.jpg',
     'https://avatars.mds.yandex.net/i?id=01886cca897cf8a4efa258f2f2062c74-4589919-images-thumbs&n=13'];
     const HeadText2 =['кактус','человек-паук','трансформер','кунг-фу Павла','Машинка','солдатики','конструктор LEGOBT+','Соска детская','титаник','Набор ребенка','новогодний подарок','Детская лупа'];
+<<<<<<< HEAD
     function generatemagazine(mdx,arrImage,arrText,parentElement){
         for(let i=0; i<mdx; i++){
             let contentHead = document.createElement('div');
@@ -39,3 +44,34 @@ window.onload = function(){
     generatemagazine(12,HeadContentIMG2,HeadText2,document.getElementById('child-con-footer'));
 }
 
+=======
+    for(let i=0; i<6; i++){
+        let contentHead = document.createElement('div');
+        contentHead.id = 'contentHead';
+        document.getElementById('child-con-head').appendChild(contentHead);
+        let contentHeadImage = document.createElement('img');
+        contentHeadImage.id = 'contentHeadImage';
+        contentHeadImage.style.cssText = `height: 250px; width:230px`;
+        contentHeadImage.src = HeadContentIMG[i];
+        contentHead.appendChild(contentHeadImage);
+        let contentHeadText = document.createElement('p');
+        contentHeadText.id = 'contentHeadText';
+        contentHeadText.textContent = HeadText[i]
+        contentHead.appendChild(contentHeadText);
+    }
+    for(let i=0; i<12; i++){
+        let contentHead = document.createElement('div');
+        contentHead.id = 'contentHead';
+        document.getElementById('child-con-footer').appendChild(contentHead);
+        let contentHeadImage = document.createElement('img');
+        contentHeadImage.id = 'contentHeadImage';
+        contentHeadImage.style.cssText = `height: 250px; width:230px`;
+        contentHeadImage.src = HeadContentIMG2[i];
+        contentHead.appendChild(contentHeadImage);
+        let contentHeadText = document.createElement('p');
+        contentHeadText.id = 'contentHeadText';
+        contentHeadText.textContent = HeadText2[i]
+        contentHead.appendChild(contentHeadText);
+    }
+}
+>>>>>>> 8ca2eeef386c20360bbb5f6b8ed0abfe4c98dbf7
