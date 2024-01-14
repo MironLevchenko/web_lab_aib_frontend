@@ -1,21 +1,16 @@
-from abc import ABCMeta, abstractmethod
+from abc import ABC, abstractmethod
 
-
-class BaseXlsBlock(metaclass=ABCMeta):
-    NAME = "Block"
-    colNames = []
-
-    def __init__(self, worksheet, workbook, row, col, data={}):
+class BaseXlsBlock(ABC):
+    def __init__(self, worksheet, workbook, row, col, data):
         self.worksheet = worksheet
         self.workbook = workbook
         self.row = row
         self.col = col
         self.data = data
-
     @abstractmethod
-    def writeHeaderCol(self):
+    def write_header(self):
         pass
 
     @abstractmethod
-    def writeData(self):
+    def write_data(self):
         pass

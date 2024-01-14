@@ -1,14 +1,27 @@
-import xlsxwriter
-import json
 from datetime import datetime
-from writer import XlsAnalyticPaymentWriter
+import json
+import os
+from writter import XlsAnalyticPaymentWriter
+
+def load_data(file_path):
+    full_path = os.path.join(
+        os.path.dirname(__file__), '..',
+        file_path
+    )
+    with open(full_path, 'r', encoding='utf-8') as file:
+        data = json.load(file)
+    return data
 
 if __name__ == '__main__':
-    with open('clients.json', 'r', encoding='utf-8') as f:
-        data_clients = json.load(f)
-    with open('payments.json', 'r', encoding='utf-8') as f:
-        data_payments = json.load(f)
+    data_clients = load_data('clients.json')
+    data_payments = load_data('payments.json')
+
     data = {'clients': data_clients['clients'], 'payments': data_payments['payments']}
 
-    output = XlsAnalyticPaymentWriter(data)
-    output.write_excel_report(f'payments_analytics_{datetime.now().strftime("%Y-%m-%d")}.xlsx')
+    timestamp = datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
+    output_file = f'my_payments_analytics_{timestamp}.xlsx'
+
+    xls_writer = XlsAnalyticPaymentWriter(data)
+    xls_writer.write_excel_report(output_file)
+
+    print(f"Report generated successfully. Output file: {output_file}")
